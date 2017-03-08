@@ -6,7 +6,7 @@
 
 const isString = function (obj) {
 	
-	return typeof obj.target === "string" || obj.target instanceof String
+	return typeof obj === "string" || obj instanceof String
 	
 };
 
