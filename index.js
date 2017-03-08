@@ -8,6 +8,7 @@ const path = require("path");
 const fs = require("fs");
 
 const errHandler = require("./errorHandler");
+const aux = require("./aux");
 
 let root = "";
 const rootFiles = new Set();
@@ -168,6 +169,8 @@ const filterFile = function (item) {
 
 const getPath = function (string) {
 	
+	console.log(`getPath: ${string}`);
+	
 	let rootPath = "";
 	
 	if (string === null || string === "") {
@@ -213,11 +216,28 @@ const getPath = function (string) {
 
 const processIgnorePaths = function (_ignore) {
 	
+	console.log(_ignore);
+	
 	const ignoreSet = new Set();
+	
+	if (aux.isArray(_ignore)) {
+		
+		
+		
+	} else if (aux.isString(_ignore)) {
+		
+		let temp = _ignore;
+		_ignore = [];
+		
+		_ignore.push(temp);
+		
+	}
 	
 	for (let elem = 0; elem < _ignore.length; ++elem) {
 		
 		const tempPath = getPath(_ignore[elem]);
+		
+		console.log(`processIgnorePaths: ${tempPath}`);
 		
 		if (tempPath) {
 			
@@ -251,6 +271,8 @@ const ngFinder = function (finderTask) {
 	const ngFiles = [];
 	
 	root = getPath(finderTask.target);
+	
+	
 	
 	ignorePaths = processIgnorePaths(finderTask.ignore);
 	
