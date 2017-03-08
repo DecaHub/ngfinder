@@ -165,7 +165,9 @@ const getPath = function (string) {
 	
 	if (string === null || string === "") {
 		
-		rootPath = path.join("app", "dist");
+		rootPath = null;
+		
+		return rootPath;
 		
 	} else {
 		
@@ -196,15 +198,9 @@ const getPath = function (string) {
 			
 		}
 		
-	}
-	
-	if (rootPath === null || rootPath === "") {
-		
-		return null;
+		return rootPath;
 		
 	}
-	
-	return rootPath;
 	
 };
 
