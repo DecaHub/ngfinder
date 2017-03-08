@@ -51,7 +51,7 @@ ng.set("Controllers", new Set());
 ng.set("Components", new Set());
 ng.set("OtherJS", new Set());
 
-const fileWalker = function (dir, files) {
+const fileWalker = function (dir, files, ignorePaths) {
 	
 	fs.readdirSync(dir).forEach(function (item) {
 		
@@ -176,17 +176,53 @@ const getPath = function (string) {
 		
 	}
 	
-	return rootPath;
+	if (rootPath === null || rootPath === "") {
+		
+		return null;
+		
+	} else {
+		
+		return rootPath;
+		
+	}
+	
+};
+
+const processIgnorePaths = function (_ignore) {
+	
+	let ignoreSet = new Set();
+	
+	for (let i = 0; i < _ignore.length; ++i) {
+		
+		let tempPath = getPath(_ignore[i]);
+		
+		if (tempPath) {
+			
+			ignoreSet.add(tempPath)
+			
+		}
+		
+	}
+	
+	return ignoreSet;
 	
 };
 
 const ngFinder = function (finderTask) {
 	
-	root = getPath(finderTask.target);
-	
+	let ignorePaths = null;
 	const ngFiles = [];
 	
-	fileWalker(root, rootFiles, finderTask);
+	console.log(finderTask.ignore);
+	
+	root = getPath(finderTask.target);
+	
+	ignorePaths = processIgnorePaths(finderTask.ignore);
+	
+	console.log(ignorePaths);
+	
+	
+	fileWalker(root, rootFiles, ignorePaths);
 	
 	for (const item of rootFiles) {
 		
@@ -211,5 +247,10 @@ const ngFinder = function (finderTask) {
 	return ngFiles;
 	
 };
+
+console.log(ngFinder({
+	target: "docs",
+	ignore: ["docs/lib"]
+}));
 
 module.exports = ngFinder;
