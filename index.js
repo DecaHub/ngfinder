@@ -137,17 +137,17 @@ const filterFile = function (item) {
 	
 };
 
-const getRootPath = function (_root) {
+const getPath = function (string) {
 	
 	let rootPath = "";
 	
-	if (_root === null || _root === "") {
+	if (string === null || string === "") {
 		
 		rootPath = path.join("app", "dist");
 		
 	} else {
 		
-		const temp = _root.split(/[\\/]/);
+		const temp = string.split(/[\\/]/);
 		
 		for (let elem = 0; elem < temp.length; elem++) {
 			
@@ -182,11 +182,11 @@ const getRootPath = function (_root) {
 
 const ngFinder = function (finderTask) {
 	
-	root = getRootPath(finderTask.target);
+	root = getPath(finderTask.target);
 	
 	const ngFiles = [];
 	
-	fileWalker(root, rootFiles);
+	fileWalker(root, rootFiles, finderTask);
 	
 	for (const item of rootFiles) {
 		
