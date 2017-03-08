@@ -7,6 +7,8 @@
 const path = require("path");
 const fs = require("fs");
 
+const errHandler = require("./errorHandler");
+
 let root = "";
 const rootFiles = new Set();
 
@@ -50,6 +52,11 @@ ng.set("Resolvers", new Set());
 ng.set("Controllers", new Set());
 ng.set("Components", new Set());
 ng.set("OtherJS", new Set());
+
+const finderTaskProps = new Set();
+
+finderTaskProps.add("target");
+finderTaskProps.add("ignore");
 
 const fileWalker = function (dir, files, ignorePaths) {
 	
@@ -226,15 +233,28 @@ const processIgnorePaths = function (_ignore) {
 
 const ngFinder = function (finderTask) {
 	
-	let ignorePaths = null;
-	const ngFiles = [];
+	try {
+		
+		errHandler.isInvalidObj(finderTask);
+		errHandler.hasUnknownProperties(finderTask, finderTaskProps);
+		errHandler.hasAllRequiredProps(finderTask, finderTaskProps);
+		
+	}
+	catch (error) {
+		
+		console.log(error.message);
+		return null;
+		
+	}
 	
-	console.log(finderTask.ignore);
+	let ignorePaths;
+	const ngFiles = [];
 	
 	root = getPath(finderTask.target);
 	
 	ignorePaths = processIgnorePaths(finderTask.ignore);
 	
+	console.log(`ngFinder.ignorePaths:`);
 	console.log(ignorePaths);
 	
 	
@@ -263,10 +283,5 @@ const ngFinder = function (finderTask) {
 	return ngFiles;
 	
 };
-
-console.log(ngFinder({
-	target: "docs",
-	ignore: ["docs/lib", "docs/animations"]
-}).length);
 
 module.exports = ngFinder;
