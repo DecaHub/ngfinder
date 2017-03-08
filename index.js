@@ -7,7 +7,7 @@
 const path = require("path");
 const fs = require("fs");
 
-const root = path.join("app", "dist");
+let root = "";
 const rootFiles = new Set();
 
 const types = {
@@ -137,7 +137,52 @@ const filterFile = function (item) {
 	
 };
 
-const ngFinder = function () {
+const getRootPath = function (_root) {
+	
+	let rootPath = "";
+	
+	if (_root === null || _root === "") {
+		
+		rootPath = path.join("app", "dist");
+		
+	} else {
+		
+		const temp = _root.split(/[\\/]/);
+		
+		for (let elem = 0; elem < temp.length; elem++) {
+			
+			if (temp[elem] === "" || temp[elem] === null) {
+				
+				temp.splice(elem, 1);
+				
+				/**
+				 * Rewind elem by 1;
+				 * else elem next to the spliced elem won't be inspected.
+				 */
+				
+				elem -= 1;
+				
+			} else if (elem < temp.length - 1) {
+				
+				rootPath += `${temp[elem]}/`;
+				
+			} else {
+				
+				rootPath += temp[elem];
+				
+			}
+			
+		}
+		
+	}
+	
+	return rootPath;
+	
+};
+
+const ngFinder = function (finderTask) {
+	
+	root = getRootPath(finderTask.target);
 	
 	const ngFiles = [];
 	
