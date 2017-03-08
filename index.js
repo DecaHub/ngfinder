@@ -53,21 +53,37 @@ ng.set("OtherJS", new Set());
 
 const fileWalker = function (dir, files, ignorePaths) {
 	
-	fs.readdirSync(dir).forEach(function (item) {
+	try {
 		
-		const filepath = path.join(dir, item);
+		fs.readdirSync(dir).forEach(function (item) {
+			
+			const filepath = path.join(dir, item);
+			
+			if (fs.statSync(filepath).isDirectory()) {
+				
+				fileWalker(filepath, files);
+				
+			} else if (path.extname(filepath) === ".js") {
+				
+				files.add(filepath);
+				
+			}
+			
+		});
 		
-		if (fs.statSync(filepath).isDirectory()) {
+	} catch (error) {
+		
+		if (error.code === "ENOENT") {
 			
-			fileWalker(filepath, files);
+			console.error(`Specified Target Directory not found: ${error.path}`);
 			
-		} else if (path.extname(filepath) === ".js") {
+		} else {
 			
-			files.add(filepath);
+			throw error;
 			
 		}
 		
-	});
+	}
 	
 };
 
@@ -180,25 +196,23 @@ const getPath = function (string) {
 		
 		return null;
 		
-	} else {
-		
-		return rootPath;
-		
 	}
+	
+	return rootPath;
 	
 };
 
 const processIgnorePaths = function (_ignore) {
 	
-	let ignoreSet = new Set();
+	const ignoreSet = new Set();
 	
-	for (let i = 0; i < _ignore.length; ++i) {
+	for (let elem = 0; elem < _ignore.length; ++elem) {
 		
-		let tempPath = getPath(_ignore[i]);
+		const tempPath = getPath(_ignore[elem]);
 		
 		if (tempPath) {
 			
-			ignoreSet.add(tempPath)
+			ignoreSet.add(tempPath);
 			
 		}
 		
@@ -249,7 +263,7 @@ const ngFinder = function (finderTask) {
 };
 
 console.log(ngFinder({
-	target: "docs",
+	target: "docs/dist",
 	ignore: ["docs/lib"]
 }));
 
