@@ -56,4 +56,8 @@ for (let test = 0; test < tests.length; test++) {
 	console.log(`Name: ${tests[test].name}`);
 	let temp = ngfinder(tests[test].obj);
 	
+	if (test !== null) {
+		console.log(temp);
+	}
+	
 }
