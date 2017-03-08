@@ -59,9 +59,15 @@ const fileWalker = function (dir, files, ignorePaths) {
 			
 			const filepath = path.join(dir, item);
 			
+			if (ignorePaths.has(filepath)) {
+				
+				return;
+				
+			}
+			
 			if (fs.statSync(filepath).isDirectory()) {
 				
-				fileWalker(filepath, files);
+				fileWalker(filepath, files, ignorePaths);
 				
 			} else if (path.extname(filepath) === ".js") {
 				
@@ -263,8 +269,8 @@ const ngFinder = function (finderTask) {
 };
 
 console.log(ngFinder({
-	target: "docs/dist",
-	ignore: ["docs/lib"]
-}));
+	target: "docs",
+	ignore: ["docs/lib", "docs/animations"]
+}).length);
 
 module.exports = ngFinder;
