@@ -1,0 +1,17 @@
+{
+  "name": "ngfinder",
+  "version": "1.0.0",
+  "description": "Finder and organizer of angular files based on naming convention",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "angular",
+    "organizer",
+    "finder",
+    "gulp"
+  ],
+  "author": "DecaHub",
+  "license": "ISC"
+}
