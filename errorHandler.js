@@ -4,6 +4,8 @@
 
 "use strict";
 
+const aux = require("./aux");
+
 const isInvalidObj = function (obj) {
 	
 	let state = "";
@@ -12,19 +14,28 @@ const isInvalidObj = function (obj) {
 	
 	if (!obj) {
 		
-		state = obj === "" ? "empty string" : obj;
+		if (obj === "") {
+			
+			state = "empty string";
+			
+		} else {
+			
+			state = obj;
+			
+		}
+		
 		error = true;
 		
 	} else if (Object.keys(obj).length === 0 && obj.constructor === Object) {
 		
-		state =  "empty object";
+		state = "empty object";
 		error = true;
 		
 	}
 	
 	if (error) {
 		
-		throw new Error(`You passed ${state} as argument to ngFinder. Please pass an object with the proper format and properties.`);
+		throw new Error(`ngFinder got ${state} as argument. Please pass an object with the proper format and properties.`);
 		
 	}
 	
@@ -32,16 +43,16 @@ const isInvalidObj = function (obj) {
 
 const hasUnknownProperties = function (obj, requiredProps) {
 	
-	let unknownProps = new Set();
+	const unknownProps = new Set();
 	
 	/**
 	 * Check for unknown properties
 	 * Throw error if unknown property found
 	 */
 	
-	for (let prop in obj) {
+	for (const prop in obj) {
 		
-		if (obj.hasOwnProperty(prop)) {
+		if (Object.prototype.hasOwnProperty.call(obj, prop)) {
 			
 			if (!requiredProps.has(prop)) {
 				
@@ -57,7 +68,7 @@ const hasUnknownProperties = function (obj, requiredProps) {
 		
 		let unknowns = "";
 		
-		for (let unknown of unknownProps) {
+		for (const unknown of unknownProps) {
 			
 			unknowns += `${unknown} `;
 			
@@ -69,21 +80,19 @@ const hasUnknownProperties = function (obj, requiredProps) {
 	
 };
 
-
-
 const hasAllRequiredProps = function (obj, requiredProps) {
 	
 	
-	let knownProps = new Set();
+	const knownProps = new Set();
 	
 	/**
 	 * Check for unknown properties
 	 * Throw error if unknown property found
 	 */
 	
-	for (let prop in obj) {
+	for (const prop in obj) {
 		
-		if (obj.hasOwnProperty(prop)) {
+		if (Object.prototype.hasOwnProperty.call(obj, prop)) {
 			
 			if (requiredProps.has(prop)) {
 				
@@ -99,11 +108,11 @@ const hasAllRequiredProps = function (obj, requiredProps) {
 		
 		let missing = "";
 		
-		for (let prop of requiredProps) {
+		for (const prop of requiredProps) {
 			
 			if (!knownProps.has(prop)) {
 				
-				missing += `${prop} `
+				missing += `${prop} `;
 				
 			}
 			
@@ -115,11 +124,46 @@ const hasAllRequiredProps = function (obj, requiredProps) {
 	
 };
 
+
+const isTargetValid = function (target) {
+	
+	if (!aux.isString(target)) {
+		
+		throw new Error("Property target is not a string.");
+		
+	}
+	
+};
+
+const isIgnoreValid = function (ignore) {
+	
+	if (aux.isArray(ignore)) {
+		
+		for (let index = 0; index < ignore.length; index++) {
+			
+			if (!aux.isString(ignore[index])) {
+				
+				throw new Error("Property ignore is not an array of strings.");
+				
+			}
+			
+		}
+		
+	} else if (!aux.isString(ignore)) {
+		
+		throw new Error("Property ignore is not a string or an array of strings.");
+		
+	}
+	
+};
+
 module.exports = {
 	
 	isInvalidObj,
 	hasUnknownProperties,
 	hasAllRequiredProps,
+	isTargetValid,
+	isIgnoreValid
 	
 };
 
