@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Finder and organizer of angular files based on naming convention",
   "main": "index.js",
+  "repository": "git@github.com:DecaHub/ngfinder.git",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
