@@ -142,12 +142,8 @@ const ngFinder = function (finderTask) {
 	const ng = new (require("./ng"))();
 	const validFinderTask = require("./finderTask");
 	
-	let root = null;
 	const rootFiles = new Set();
 	
-	let ignorePaths = null;
-	const ngFiles = [];
-
 	/**
 	 * Check object shell integrity
 	 */
@@ -183,10 +179,9 @@ const ngFinder = function (finderTask) {
 
 	}
 
-	root = getPath(finderTask.target);
-	ignorePaths = processIgnorePaths(finderTask.ignore);
-
-	const walker = fileWalker(root, rootFiles, ignorePaths);
+	const walker =
+		fileWalker(getPath(finderTask.target),
+			rootFiles, processIgnorePaths(finderTask.ignore));
 	
 	if (!walker) {
 		
@@ -194,27 +189,7 @@ const ngFinder = function (finderTask) {
 		
 	}
 
-	for (const item of rootFiles) {
-
-		ng.filterFile(item);
-
-	}
-
-	for (const [name, set] of ng.map.entries()) {
-
-		if (set.size > 0) {
-
-			for (const file of set) {
-
-				ngFiles.push(file);
-
-			}
-
-		}
-
-	}
-
-	return ngFiles;
+	return ng.filterFiles(rootFiles);
 	
 };
 

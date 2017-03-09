@@ -120,6 +120,34 @@ class NG {
 	
 	}
 	
+	filterFiles (files) {
+		
+		let ngFiles = [];
+		
+		for (const item of files) {
+			
+			this.filterFile(item);
+			
+		}
+		
+		for (const [name, set] of this.map.entries()) {
+			
+			if (set.size > 0) {
+				
+				for (const file of set) {
+					
+					ngFiles.push(file);
+					
+				}
+				
+			}
+			
+		}
+		
+		return ngFiles;
+		
+	}
+	
 }
 
 module.exports = NG;
