@@ -13,5 +13,9 @@
     "gulp"
   ],
   "author": "DecaHub",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "bootstrap-logs": "^1.0.0",
+    "chalk": "^1.1.3"
+  }
 }
