@@ -12,23 +12,23 @@ const assert = require("assert");
 const chai = require("chai");
 const expect = chai.expect;
 
-const ngFinder = require("./index");
+const ngFinder = require("./../index");
 
 describe("NgFingder", function () {
 	
-	it('returns 20 when target is "test/docs", ignore not used.', function () {
+	it('returns 20 when target is "test_samples/docs", ignore not used.', function () {
 		
-		const ngFinderTest = ngFinder({target: "test/docs"});
+		const ngFinderTest = ngFinder({target: "test_samples/docs"});
 		
 		expect(ngFinderTest.length).to.equal(24);
 		
 	});
 	
-	it('returns 18 when target is "test/docs", ignore is "test/docs/lib"', function () {
+	it('returns 18 when target is "test_samples/docs", ignore is "test_samples/docs/lib"', function () {
 		
 		const ngFinderTest = ngFinder({
-			target: "test/docs",
-			ignore: "test/docs/lib"
+			target: "test_samples/docs",
+			ignore: "test_samples/docs/lib"
 		});
 		
 		expect(ngFinderTest.length).to.equal(18);
@@ -37,7 +37,7 @@ describe("NgFingder", function () {
 	
 	it('returns null when ignore is present but target is missing', function () {
 		
-		const ngFinderTest = ngFinder({ignore: "test/docs/lib"});
+		const ngFinderTest = ngFinder({ignore: "test_samples/docs/lib"});
 		
 		expect(ngFinderTest).to.equal(null);
 		
@@ -46,9 +46,9 @@ describe("NgFingder", function () {
 	it('returns null when it has both required properties but one invalid', function () {
 		
 		const ngFinderTest = ngFinder({
-			target: "test/docs",
-			ignore: "test/docs/lib",
-			test: "test/path"
+			target: "test_samples/docs",
+			ignore: "test_samples/docs/lib",
+			test: "test_samples/path"
 		});
 		
 		expect(ngFinderTest).to.equal(null);
@@ -58,9 +58,9 @@ describe("NgFingder", function () {
 	it('returns null when it has none of the required properties', function () {
 		
 		const ngFinderTest = ngFinder({
-			music: "test/docs",
-			is: "test/docs/lib",
-			life: "test/path"
+			music: "test_samples/docs",
+			is: "test_samples/docs/lib",
+			life: "test_samples/path"
 		});
 		
 		expect(ngFinderTest).to.equal(null);
@@ -103,7 +103,7 @@ describe("NgFingder", function () {
 		
 		const ngFinderTest = ngFinder({
 			target: 5,
-			ignore: "test/docs/lib"
+			ignore: "test_samples/docs/lib"
 		});
 		
 		expect(ngFinderTest).to.equal(null);
@@ -114,7 +114,7 @@ describe("NgFingder", function () {
 		
 		const ngFinderTest = ngFinder({
 			target: {},
-			ignore: "test/docs/lib"
+			ignore: "test_samples/docs/lib"
 		});
 		
 		expect(ngFinderTest).to.equal(null);
@@ -125,7 +125,7 @@ describe("NgFingder", function () {
 		
 		const ngFinderTest = ngFinder({
 			target: ["string"],
-			ignore: "test/docs/lib"
+			ignore: "test_samples/docs/lib"
 		});
 		
 		expect(ngFinderTest).to.equal(null);
@@ -135,8 +135,8 @@ describe("NgFingder", function () {
 	it('returns null when it gets a valid object with a valid ignore and target, but target is not a path', function () {
 		
 		const ngFinderTest = ngFinder({
-			target: "test/docs this is not a path",
-			ignore: "test/docs/lib"
+			target: "test_samples/docs this is not a path",
+			ignore: "test_samples/docs/lib"
 		});
 		
 		expect(ngFinderTest).to.equal(null);
@@ -146,8 +146,8 @@ describe("NgFingder", function () {
 	it('returns 16 with this valid object', function () {
 		
 		const ngFinderTest = ngFinder({
-			target: "test/docs",
-			ignore: ["test/docs/lib", "test/docs/animations"]
+			target: "test_samples/docs",
+			ignore: ["test_samples/docs/lib", "test_samples/docs/animations"]
 		});
 		
 		expect(ngFinderTest.length).to.equal(16);
@@ -157,8 +157,8 @@ describe("NgFingder", function () {
 	it('returns 0 when target and ignore are the same', function () {
 		
 		const ngFinderTest = ngFinder({
-			target: "test/docs",
-			ignore: "test/docs"
+			target: "test_samples/docs",
+			ignore: "test_samples/docs"
 		});
 		
 		expect(ngFinderTest.length).to.equal(0);

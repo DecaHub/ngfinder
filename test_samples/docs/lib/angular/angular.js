@@ -1990,7 +1990,7 @@ function assertArgFn(arg, name, acceptArrayAnnotation) {
 
 /**
  * throw error if the name given is hasOwnProperty
- * @param  {String} name    the name to test
+ * @param  {String} name    the name to test_samples
  * @param  {String} context the context in which the name is used, such as module or directive
  */
 function assertNotHasOwnProperty(name, context) {
@@ -6398,7 +6398,7 @@ function Browser(window, document, $log, $sniffer) {
    * @description
    * Executes a fn asynchronously via `setTimeout(fn, delay)`.
    *
-   * Unlike when calling `setTimeout` directly, in test this function is mocked and instead of using
+   * Unlike when calling `setTimeout` directly, in test_samples this function is mocked and instead of using
    * `setTimeout` in tests, the fns are queued in an array, which can be programmatically flushed
    * via `$browser.defer.flush()`.
    *
@@ -6561,7 +6561,7 @@ function $CacheFactoryProvider() {
        *    }]);
        * ```
        *
-       * Example test:
+       * Example test_samples:
        *
        * ```js
        *  it('should behave like a cache', inject(function(superCache) {
@@ -9080,7 +9080,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
       } catch (e) {
         // turns out that under some circumstances IE9 throws errors when one attempts to read
         // comment's node value.
-        // Just ignore it and continue. (Can't seem to reproduce in test case.)
+        // Just ignore it and continue. (Can't seem to reproduce in test_samples case.)
       }
     }
 
@@ -19803,7 +19803,7 @@ function $$TestabilityProvider() {
      *
      * @description
      * The private $$testability service provides a collection of methods for use when debugging
-     * or by automated test and debugging tools.
+     * or by automated test_samples and debugging tools.
      */
     var testability = {};
 
@@ -26706,7 +26706,7 @@ var ngControllerDirective = [function() {
             webdriver = require('selenium-webdriver');
           });
 
-          // For now, we only test on Chrome,
+          test_samples
           // as Safari does not load the page with Protractor's injected scripts,
           // and Firefox webdriver always disables content security policy (#6358)
           if (browser.params.browser !== 'chrome') {
