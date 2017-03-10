@@ -5,6 +5,7 @@
 "use strict";
 
 const aux = require("./aux");
+const log = require("bootstrap-logs");
 
 const isInvalidObj = function (obj) {
 	
@@ -41,7 +42,7 @@ const isInvalidObj = function (obj) {
 	
 };
 
-const hasUnknownProperties = function (obj, requiredProps) {
+const hasUnknownProperties = function (obj, finderTask) {
 	
 	const unknownProps = new Set();
 	
@@ -54,7 +55,7 @@ const hasUnknownProperties = function (obj, requiredProps) {
 		
 		if (Object.prototype.hasOwnProperty.call(obj, prop)) {
 			
-			if (!requiredProps.has(prop)) {
+			if (!(finderTask.requiredProps.has(prop) || finderTask.optionalProps.has(prop))) {
 				
 				unknownProps.add(prop);
 				
@@ -80,21 +81,16 @@ const hasUnknownProperties = function (obj, requiredProps) {
 	
 };
 
-const hasAllRequiredProps = function (obj, requiredProps) {
+const hasAllRequiredProps = function (obj, finderTask) {
 	
 	
 	const knownProps = new Set();
-	
-	/**
-	 * Check for unknown properties
-	 * Throw error if unknown property found
-	 */
 	
 	for (const prop in obj) {
 		
 		if (Object.prototype.hasOwnProperty.call(obj, prop)) {
 			
-			if (requiredProps.has(prop)) {
+			if (finderTask.requiredProps.has(prop)) {
 				
 				knownProps.add(prop);
 				
@@ -104,11 +100,11 @@ const hasAllRequiredProps = function (obj, requiredProps) {
 		
 	}
 	
-	if (knownProps.size !== requiredProps.size) {
+	if (knownProps.size !== finderTask.requiredProps.size) {
 		
 		let missing = "";
 		
-		for (const prop of requiredProps) {
+		for (const prop of finderTask.requiredProps) {
 			
 			if (!knownProps.has(prop)) {
 				
