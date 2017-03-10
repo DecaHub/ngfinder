@@ -220,4 +220,22 @@ describe("NgFingder", function () {
 		
 	});
 	
+	it('returns null when target is an array and there is no ignore', function () {
+		
+		const ngFinderTest = ngFinder({
+			target: ["test_samples/docs"]
+		});
+		
+		expect(ngFinderTest).to.equal(null);
+		
+	});
+	
+	it('returns null when passed an array', function () {
+		
+		const ngFinderTest = ngFinder(["test_samples/docs"]);
+		
+		expect(ngFinderTest).to.equal(null);
+		
+	});
+	
 });

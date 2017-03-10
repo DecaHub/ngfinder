@@ -6,10 +6,9 @@
 
 const path = require("path");
 const fs = require("fs");
+const is = require("is");
 
 const errHandler = require("./errorHandler");
-const aux = require("./aux");
-
 const log = require("bootstrap-logs");
 
 log.custom({
@@ -119,11 +118,11 @@ const processIgnorePaths = function (_ignore) {
 	const ignoreSet = new Set();
 	let stringArray = [];
 	
-	if (aux.isString(_ignore)) {
+	if (is.string(_ignore)) {
 		
 		stringArray.push(_ignore);
 		
-	} else if (aux.isArray(_ignore)) {
+	} else if (is.array(_ignore)) {
 		
 		stringArray = _ignore;
 		

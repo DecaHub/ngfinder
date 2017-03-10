@@ -4,8 +4,7 @@
 
 "use strict";
 
-const aux = require("./aux");
-const log = require("bootstrap-logs");
+const is = require("is");
 
 const isInvalidObj = function (obj) {
 	
@@ -31,6 +30,10 @@ const isInvalidObj = function (obj) {
 		
 		state = "empty object";
 		error = true;
+		
+	} if (!is.object(obj)) {
+		
+		throw new Error(`ngFinder didn't get a Finder Task object. Please pass an object with the proper format and properties.`);
 		
 	}
 	
@@ -123,7 +126,7 @@ const hasAllRequiredProps = function (obj, finderTask) {
 
 const isTargetValid = function (target) {
 	
-	if (!aux.isString(target)) {
+	if (!is.string(target)) {
 		
 		throw new Error("Property target is not a string.");
 		
@@ -137,11 +140,11 @@ const isTargetValid = function (target) {
 
 const isIgnoreValid = function (ignore) {
 	
-	if (aux.isArray(ignore)) {
+	if (is.array(ignore)) {
 		
 		for (let index = 0; index < ignore.length; index++) {
 			
-			if (!aux.isString(ignore[index])) {
+			if (!is.string(ignore[index])) {
 				
 				throw new Error("Property ignore is not an array of strings.");
 				
@@ -149,7 +152,7 @@ const isIgnoreValid = function (ignore) {
 			
 		}
 		
-	} else if (!aux.isString(ignore)) {
+	} else if (!is.string(ignore)) {
 		
 		throw new Error("Property ignore is not a string or an array of strings.");
 		
