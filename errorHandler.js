@@ -127,6 +127,10 @@ const isTargetValid = function (target) {
 		
 		throw new Error("Property target is not a string.");
 		
+	} else if (target === "") {
+		
+		throw new Error("Property target is an empty string.");
+		
 	}
 	
 };
@@ -148,6 +152,10 @@ const isIgnoreValid = function (ignore) {
 	} else if (!aux.isString(ignore)) {
 		
 		throw new Error("Property ignore is not a string or an array of strings.");
+		
+	} else if (ignore === "") {
+		
+		throw new Error("Property ignore is an empty string.");
 		
 	}
 	
