@@ -143,6 +143,61 @@ describe("NgFingder", function () {
 		
 	});
 	
+	it('returns null when it gets a valid object with an empty string target', function () {
+		
+		const ngFinderTest = ngFinder({
+			target: "",
+			ignore: "test_samples/docs"
+		});
+		
+		expect(ngFinderTest).to.equal(null);
+		
+	});
+	
+	it('returns null when it gets a valid object with a valid target, but empty string as ignore', function () {
+		
+		const ngFinderTest = ngFinder({
+			target: "test_samples/docs",
+			ignore: ""
+		});
+		
+		expect(ngFinderTest).to.equal(null);
+		
+	});
+	
+	it('returns null when it gets a valid object with a valid target, but invalid ignore: 5', function () {
+		
+		const ngFinderTest = ngFinder({
+			target: "test_samples/docs",
+			ignore: 5
+		});
+		
+		expect(ngFinderTest).to.equal(null);
+		
+	});
+	
+	it('returns null when it gets a valid object with a valid target, but invalid ignore: undefined', function () {
+		
+		const ngFinderTest = ngFinder({
+			target: "test_samples/docs",
+			ignore: undefined
+		});
+		
+		expect(ngFinderTest).to.equal(null);
+		
+	});
+	
+	it('returns 24 when it gets a valid object with a valid target, but ignore is empty array', function () {
+		
+		const ngFinderTest = ngFinder({
+			target: "test_samples/docs",
+			ignore: []
+		});
+		
+		expect(ngFinderTest.length).to.equal(24);
+		
+	});
+	
 	it('returns 16 with this valid object', function () {
 		
 		const ngFinderTest = ngFinder({
