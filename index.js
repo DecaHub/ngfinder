@@ -23,6 +23,12 @@ const verboseErrors = false;
 
 const fileWalker = function (dir, files, ignorePaths) {
 	
+	if (ignorePaths.has(dir)) {
+		
+		return [];
+		
+	}
+	
 	try {
 		
 		fs.readdirSync(dir).forEach(function (item) {
