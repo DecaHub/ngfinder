@@ -19,6 +19,8 @@ log.custom({
 	success: "[ SUCCESS ] "
 });
 
+const verboseErrors = false;
+
 const fileWalker = function (dir, files, ignorePaths) {
 	
 	try {
@@ -137,6 +139,20 @@ const processIgnorePaths = function (_ignore) {
 	
 };
 
+const displayError = function (error) {
+	
+	if (verboseErrors) {
+		
+		log.danger(error.stack);
+		
+	} else {
+		
+		log.danger(error.message);
+		
+	}
+	
+};
+
 const ngFinder = function (finderTask) {
 	
 	const ng = new (require("./ng"))();
@@ -151,12 +167,12 @@ const ngFinder = function (finderTask) {
 	try {
 
 		errHandler.isInvalidObj(finderTask);
-		errHandler.hasUnknownProperties(finderTask, validFinderTask.props);
-		errHandler.hasAllRequiredProps(finderTask, validFinderTask.props);
+		errHandler.hasUnknownProperties(finderTask, validFinderTask);
+		errHandler.hasAllRequiredProps(finderTask, validFinderTask);
 
 	} catch (error) {
-
-		log.danger(error.message);
+		
+		displayError(error);
 		
 		return null;
 
@@ -169,11 +185,16 @@ const ngFinder = function (finderTask) {
 	try {
 
 		errHandler.isTargetValid(finderTask.target);
-		errHandler.isIgnoreValid(finderTask.ignore);
+		
+		if (Object.prototype.hasOwnProperty.call(finderTask, "ignore")) {
+			
+			errHandler.isIgnoreValid(finderTask.ignore);
+			
+		}
 
 	} catch (error) {
-
-		log.danger(error.message);
+		
+		displayError(error);
 		
 		return null;
 
