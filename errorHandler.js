@@ -31,9 +31,9 @@ const isInvalidObj = function (obj) {
 		state = "empty object";
 		error = true;
 		
-	} if (!is.object(obj)) {
+	} else if (!is.object(obj)) {
 		
-		throw new Error(`ngFinder didn't get a Finder Task object. Please pass an object with the proper format and properties.`);
+		throw new Error("ngFinder didn't get a Finder Task object. Please pass an object with the proper format and properties.");
 		
 	}
 	
@@ -58,7 +58,8 @@ const hasUnknownProperties = function (obj, finderTask) {
 		
 		if (Object.prototype.hasOwnProperty.call(obj, prop)) {
 			
-			if (!(finderTask.requiredProps.has(prop) || finderTask.optionalProps.has(prop))) {
+			if (!(finderTask.requiredProps.has(prop) ||
+				finderTask.optionalProps.has(prop))) {
 				
 				unknownProps.add(prop);
 				
