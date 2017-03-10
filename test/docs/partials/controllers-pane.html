@@ -1,0 +1,30 @@
+<my-pane title="ng-controller">
+	<zone zone-label="Controllers">
+
+		<div ng-controller="GreetingController" class="zone-example">
+			{{greeting}}
+		</div>
+
+		<div ng-controller="DoubleController" class="zone-example">
+			Two times
+			<input ng-model="num" class="sentence-input">
+			equals {{double(num)}}.
+		</div>
+
+		<div ng-controller="SpicyController" class="zone-example">
+
+			<p>Try a spice, please!</p>
+
+			<div class="io-bar">
+				<input ng-model="customSpice" class="first-ui-element">
+				<button ng-click="setCustomSpice(customSpice)">Custom Spice</button>
+				<button ng-click="chiliSpicy()">Chili</button>
+				<button ng-click="jalapenoSpicy()">Jalapeño</button>
+			</div>
+
+			<p>The food is {{spice}} spicy!</p>
+
+		</div>
+
+	</zone>
+</my-pane>

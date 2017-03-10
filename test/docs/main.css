@@ -1,0 +1,237 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video,
+input, button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+br {
+  margin: 10px 0;
+  display: block;
+  content: " "; }
+
+.area-label {
+  color: white;
+  font-family: "Racing Sans One", cursive;
+  font-size: 50px;
+  background: #820002;
+  padding: 15px; }
+
+.io-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 40px;
+  margin: 10px 0;
+  padding: 0; }
+  .io-bar label {
+    color: white; }
+  .io-bar button {
+    height: 100%;
+    padding: 0 15px;
+    color: white;
+    background: #8B0000;
+    outline: none; }
+  .io-bar input {
+    height: 100%;
+    padding: 0 10px;
+    color: black;
+    background: white;
+    outline: none; }
+  .io-bar * {
+    margin-right: 15px; }
+  .io-bar :last-child {
+    margin: 0; }
+
+.zone {
+  margin-top: 20px;
+  padding: 15px;
+  border: solid 5px #820002;
+  font-family: "Oswald", sans-serif;
+  font-size: 20px; }
+  .zone hr {
+    color: #820002;
+    border-width: 4px;
+    border-color: inherit; }
+  .zone input {
+    height: 100%;
+    padding: 0 10px;
+    color: black;
+    background: white;
+    outline: none; }
+
+.zone-label {
+  font-family: "Racing Sans One", cursive;
+  color: #820002;
+  font-size: 30px; }
+
+.zone-example {
+  color: white;
+  background: #D1343A;
+  padding: 15px;
+  margin: 10px 0; }
+  .zone-example p, .zone-example span {
+    margin-top: 10px;
+    line-height: 35px; }
+
+.zone-example-note {
+  background: #DE8585;
+  padding: 15px;
+  font-size: 20px;
+  color: black; }
+
+.zone-warning {
+  font-size: 17px;
+  line-height: 25px; }
+  .zone-warning i {
+    font-size: 24px; }
+
+.bang-button:active {
+  background: white;
+  color: #820002;
+  box-shadow: 5px 5px black; }
+
+button.chant-button {
+  background: black; }
+
+.riteImg {
+  display: block;
+  margin: auto;
+  height: 100%; }
+
+.ritual-result {
+  display: block;
+  height: 350px; }
+
+.tab-bar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: white; }
+
+.tab-bar li {
+  float: left;
+  border-bottom: 5px solid #820002; }
+
+.tab-bar li:first-child {
+  border-left: 5px solid #820002; }
+
+.tab-bar li:last-child {
+  border-right: 5px solid #820002; }
+
+.tab-bar li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-family: "Space Mono", monospace; }
+
+.tab-bar li a:hover {
+  background: #D1343A;
+  color: white; }
+
+li.activeTab {
+  background: #820002;
+  color: white; }
+  li.activeTab a {
+    color: white; }
+  li.activeTab a:hover {
+    background: #820002; }
+
+.scope-video {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 325px;
+  width: 100%;
+  background: navy; }
+
+.flex-container-center {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -ms-flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -ms-flex-pack: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -ms-flex-align: center;
+  -webkit-box-align: center;
+          align-items: center; }
+
+.flex-item-center:nth-child(1) {
+  -ms-flex-order: 0;
+  -webkit-box-ordinal-group: 1;
+          order: 0;
+  -ms-flex: 0 1 auto;
+  -webkit-box-flex: 0;
+          flex: 0 1 auto;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
+      align-self: center; }
+
+.embedVideo {
+  padding: 10px; }
+
+.person {
+  background: #8B4513;
+  width: 240px;
+  height: 240px;
+  padding: 10px;
+  border-radius: 20px; }

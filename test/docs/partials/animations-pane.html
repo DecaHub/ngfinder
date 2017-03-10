@@ -1,0 +1,60 @@
+<my-pane title="ngAnimate">
+	<zone zone-label="Animations">
+		<zone-example>
+			<div id="simple"
+			     ng-controller="AnimatedServiceSampleController">
+				<p>Let's try this animated notify service, injected into the controller...</p>
+				<p>Click 3 times.</p>
+				<!-- Chant Buttons bar -->
+				<div class="io-bar"
+				     ng-if="showChantButtons">
+					<button
+							class="bang-button"
+							ng-click="callNotify('Bloody Mary');">
+						BLOODY MARY
+					</button>
+					<button
+							class="bang-button"
+							ng-click="callNotify('Thunder');">
+						THUNDER
+					</button>
+					<button
+							class="bang-button"
+							ng-click="callNotify('Bettlejuice');">
+						BEETLEJUICE
+					</button>
+					<button
+							class="bang-button"
+							ng-click="callNotify('Shame');">
+						SHAME
+					</button>
+				</div>
+				<!-- Reset Button bar-->
+				<div class="io-bar"
+				     ng-if="!showChantButtons">
+					<button
+							class="bang-button"
+							ng-click="reset();">
+						RESET
+					</button>
+				</div>
+				
+				<div class="io-bar">
+					<button class="chant-button repeated-item"
+					        ng-repeat="chant in ritual.chants track by $index">
+						{{chant}}
+					</button>
+				</div>
+				
+				<div class="ritual-result">
+					<img class="riteImg sample-show-hide"
+					     ng-show="showImg"
+					     ng-src="{{ritual.image}}">
+				</div>
+			
+			
+			</div>
+		</zone-example>
+	</zone>
+
+</my-pane>

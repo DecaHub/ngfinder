@@ -1,0 +1,40 @@
+<my-pane title=".service()">
+	<zone zone-label="Services">
+		<zone-example>
+			<div ng-controller="ServiceSampleController">
+				
+				<div class="io-bar">
+					<input ng-model="message" >
+					<button
+							class="bang-button"
+							ng-click="callNotify(message);">
+						NOTIFY
+					</button>
+				</div>
+				
+				<p>Let's try this simple notify service, injected into the controller...</p>
+				
+				<p>(you have to click 3 times to see an alert)</p>
+			
+			
+			</div>
+		</zone-example>
+		
+		<zone-example>
+			<p>Converts a decimal number to a binary number. Only works for positive integers.</p>
+			<p>Feel free to try to break the tool by using invalid input.</p>
+			<div class="io-bar" ng-controller="ConversionController">
+				<label>
+					Decimal:
+					<input ng-model="decimalNumber">
+				</label>
+				
+				<label>
+					Binary:
+					<input disabled ng-model="binaryNumber">
+				</label>
+			</div>
+		</zone-example>
+		
+	</zone>
+</my-pane>

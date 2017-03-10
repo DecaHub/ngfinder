@@ -1,0 +1,61 @@
+<my-pane title="$scope">
+	<div ng-controller="ScopeExampleController">
+		
+		<zone zone-label="Scopes" ng-show="!devWork">
+			
+			<zone-example>
+				<zone-example-note>
+					<p>Scope refers to the application model and provides a context of execution for expressions.</p>
+					<p>Provides $watch to observe model mutations and $apply to propagate changes into the view that are made outside of the Angular realm</p>
+					<p>Scopes can be nested as (a) child scope that inherits properties from its parent scope and (b) isolate scope that does not.</p>
+				</zone-example-note>
+			</zone-example>
+		
+		</zone>
+		
+		<zone zone-label="Scope as a Data-Model">
+			
+			<zone-example ng-show="!devWork">
+				<zone-example-note>
+					<p>Scope is the glue between the application controller and the view.</p>
+					<p>Directives set up $watch expressions on the scope during the linking phase which allows them to get notified of property changes and triggers a re-rendering of values in the DOM.</p>
+					<p>Scope and directives have references to the scope but not to each other - a critical build to allow easier testing of controllers as they are view agnostic.</p>
+				
+				</zone-example-note>
+			</zone-example>
+			
+			<zone-example>
+				
+				<div class="io-bar">
+					<label>"Hello" as sung by </label>
+					<button ng-click="setVideo('adele')">Adele</button>
+					<button ng-click="setVideo('dragonette')">Martin Solveig & Dragonette</button>
+					<button ng-click="setVideo('lionel')">Lionel Richie</button>
+					<button>A drunk's kidney</button>
+				</div>
+				
+				
+				<!-- This gets rendered 13 times ! -->
+				<div class="flex-container-center" ng-if="videoChosen">
+					
+					<iframe class="flex-item-center embedVideo" width="560" height="315" src="{{getVideoLink()}}" frameborder="0" allowfullscreen></iframe>
+				</div>
+				
+			</zone-example>
+			
+			<zone-example>
+				
+				<div class="person">
+					
+					<div ng-include="'partials/faces/people.html'"></div>
+				
+				</div>
+				
+				
+			</zone-example>
+			
+		</zone>
+		
+	</div>
+	
+</my-pane>

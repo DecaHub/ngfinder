@@ -1,0 +1,11 @@
+<div>
+	<p>
+		<b>Heroes</b>
+		<div ng-repeat="hero in list">{{hero}}</div>
+		
+		<hero-detail ng-repeat="hero in list" hero="hero"
+		             on-delete="deleteHero(hero)"
+		             on-update="updateHero(hero, prop, value)"
+		></hero-detail>
+	</p>
+</div>

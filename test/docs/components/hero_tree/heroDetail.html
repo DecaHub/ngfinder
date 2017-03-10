@@ -1,0 +1,26 @@
+<hr>
+<div>
+	
+	<p>
+		This is hero.vHeroDetail:
+		<br>
+		{{$ctrl.hero}}
+	</p>
+	
+	<hr>
+	
+	<p>
+		Name: {{$ctrl.hero.name}}
+	</p>
+	
+	<div class="io-bar">
+		<editable-field
+				field-label="Location"
+				field-value="$ctrl.location"
+				on-update="$ctrl.update('location', value)">
+		</editable-field>
+		<button class="first-ui-element" ng-click="$ctrl.delete()">Delete</button>
+	
+	</div>
+	
+</div>

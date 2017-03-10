@@ -1,0 +1,19 @@
+<div class="editableField">
+	
+	<div class="io-bar">
+		
+		<label ng-if="$ctrl.fieldLabel">
+			{{$ctrl.fieldLabel}}:
+		</label>
+		
+		<input ng-disabled="!$ctrl.editMode" type="{{$ctrl.fieldType}}" ng-model="$ctrl.fieldValue">
+		
+		<button ng-click="$ctrl.handleModeChange()">
+			{{$ctrl.editMode ? "Save" : "Edit"}}
+		</button>
+		
+		<button ng-if="$ctrl.editMode" ng-click="$ctrl.reset()">Reset</button>
+		
+	</div>
+	
+</div>

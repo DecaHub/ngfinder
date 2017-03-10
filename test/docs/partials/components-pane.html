@@ -1,0 +1,78 @@
+<my-pane title=".component()">
+	<zone zone-label="Components">
+		
+		<zone-warning>
+			When using Components, camelCasing used in the name of the component or in the name of its bindings translates into camel-casing in the markup and attributes.
+			<br>
+			.component("editableField", {bindings: {fieldTitle: "<"}}) ->
+			&lteditable-field field-title=""&gt
+		</zone-warning>
+		
+		<zone-example>
+			
+			<p class="first-p"><b>Hero</b></p>
+			<hero hero="Superman"></hero>
+			
+			<zone-example-note>
+				&lthero&gt is a simple component. Its attribute receives a string.
+			</zone-example-note>
+		
+		</zone-example>
+		
+		<zone-example>
+			<p class="first">This is mainHero.vMainController:
+				<br>
+				{{mainHero}}
+			</p>
+			<p></p>
+			<editable-field
+					field-value="mainHero"
+					field-type="This is the Test type"
+			>
+			</editable-field>
+			
+			<zone-example-note>
+				This block uses the component &lteditable-field&gt. mainHero is passed through its field-value attribute. field-value has a one-way binding, &lt. The changes made to mainHero in the component do not reflect back to MainController.
+			</zone-example-note>
+		
+		</zone-example>
+		
+		<zone-example>
+			<p>
+				This is hero1.vMainController:
+				<br>
+				{{hero1}}
+			</p>
+			
+			<hero-detail hero="hero1"></hero-detail>
+		</zone-example>
+		
+		<zone-example>
+			<zone-example-note>
+				The list of heroes resides in the &lthero-list&gt controller.
+				<br>
+				Data is sent from parent to descendant component, one way, through the binding. Component modifies data and sends it back to parent.
+				<br>
+				Parent determines what to do with the modified data (further modify it, apply it to the model, etc).
+				<br>
+				For example: Use "Seattle" as the Location. The &lteditable-field&gt component first records the change to "Seattle". However, it doesn' change the &lthero-detail&gt; model. Through an event, it sends "Seattle" up to &lthero-detail&gt;. &lthero-detail&gt; controller has business logic that modifies the location to "Starbucks City". &lthero-detail&gt; sends that up to the list component. The list component has no idea that the location was ever "Seattle". It receives "Starbucks City". &lt;hero-list&gt; applies the change to its model - the highest structure to hold the list data. The upward cascading of data through events stops there.
+			</zone-example-note>
+			<hero-list></hero-list>
+		</zone-example>
+		
+		<zone-example>
+			
+			<zone-example-note>
+				Directives can require the controllers of other directives to enable cross-directive communication. This is achieved through the <b>require</b> property which creates an object mapping between a property key (local required controller name) and property value (name of component with the required controllers)
+				<br>
+				Note that the required controllers will not be available during the instantiation of the controller, but they are guaranteed to be available just before the $onInit method is executed!
+			</zone-example-note>
+			
+			<br>
+			
+			The navigation bar on this page uses this component configuration to achieve a single page application architecture.
+		
+		</zone-example>
+	
+	</zone>
+</my-pane>

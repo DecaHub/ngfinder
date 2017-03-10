@@ -1,0 +1,30 @@
+.repeated-item.ng-enter, .repeated-item.ng-move {
+  -webkit-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+  opacity: 0; }
+
+.repeated-item.ng-enter-active, .repeated-item.ng-move-active {
+  opacity: 1; }
+
+.repeated-item.ng-leave {
+  -webkit-animation: 0.2s my_animation;
+          animation: 0.2s my_animation; }
+
+@-webkit-keyframes my_animation {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+
+@keyframes my_animation {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+
+.sample-show-hide {
+  -webkit-transition: all linear 0.5s;
+  transition: all linear 0.5s; }
+
+.sample-show-hide.ng-hide {
+  opacity: 0; }

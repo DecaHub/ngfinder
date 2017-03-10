@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="main" ng-cloak="">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Push Recipe Test UI</title>
+		
+		<!-- For old IEs -->
+		<link rel="shortcut icon" href="favicon/favicon.ico" />
+		
+		<!-- For new browsers - multisize ico  -->
+		<link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="favicon/favicon.ico">
+		
+		<!-- For iPad with high-resolution Retina display running iOS ≥ 7: -->
+		<link rel="apple-touch-icon-precomposed" sizes="152x152" href="favicon/favicon-152.png">
+		
+		<!-- For iPad with high-resolution Retina display running iOS ≤ 6: -->
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="favicon/favicon-144.png">
+		
+		<!-- For iPhone with high-resolution Retina display running iOS ≥ 7: -->
+		<link rel="apple-touch-icon-precomposed" sizes="120x120" href="favicon/favicon-120.png">
+		
+		<!-- For iPhone with high-resolution Retina display running iOS ≤ 6: -->
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="favicon/favicon-114.png">
+		
+		<!-- For iPhone 6+ -->
+		<link rel="apple-touch-icon-precomposed" sizes="180x180" href="favicon/favicon-180.png">
+		
+		<!-- For first- and second-generation iPad: -->
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="favicon/favicon-72.png">
+		
+		<!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+		<link rel="apple-touch-icon-precomposed" href="favicon/favicon-57.png">
+		
+		<!-- For Old Chrome -->
+		<link rel="icon" href="favicon/favicon-32.png" sizes="32x32">
+		
+		<!-- For IE10 Metro -->
+		<meta name="msapplication-TileColor" content="#FFFFFF">
+		<meta name="msapplication-TileImage" content="favicon-144.png">
+		<meta name="theme-color" content="#ffffff">
+		
+		<!-- Chrome for Android -->
+		<link rel="manifest" href="favicon/manifest.json">
+		<link rel="icon" sizes="192x192" href="favicon/favicon-192.png">
+		
+		<link href="https://fonts.googleapis.com/css?family=Oswald|Racing+Sans+One|Roboto|Space+Mono:400,700|Work+Sans:500" rel="stylesheet">
+		
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+		      rel="stylesheet">
+		
+		<!-- bower:css-->
+		<!-- endinject -->
+		
+		<!-- inject:css-->
+		<link rel="stylesheet" href="animation.css">
+		<link rel="stylesheet" href="main.css">
+		<link rel="stylesheet" href="partials/faces/faces.css">
+		<!-- endinject -->
+	
+	
+	
+	</head>
+	<body>
+		<div class="container" ng-controller="MainController">
+			
+			<h1 class="area-label">NG-1</h1>
+			
+			<my-tabs>
+				
+				<ng-include ng-repeat="pane in panes" src="pane"></ng-include>
+			
+			</my-tabs>
+		
+		</div>
+		
+		<!-- bower:js-->
+		<script src="lib/angular/angular.js"></script>
+		<script src="lib/angular-animate/angular-animate.js"></script>
+		<!-- endinject -->
+		
+		<!-- inject:js -->
+		<script src="main.app.js"></script>
+		<script src="scopes/scopes.module.js"></script>
+		<script src="animations/notify.animated.service.js"></script>
+		<script src="services/notify.service.js"></script>
+		<script src="main.controller.js"></script>
+		<script src="animations/animatedServiceSample.controller.js"></script>
+		<script src="controllers/controllers.controller.js"></script>
+		<script src="services/convertion.controller.js"></script>
+		<script src="components/tab-pane/my-pane.component.js"></script>
+		<script src="components/tab-pane/my-tabs.component.js"></script>
+		<script src="components/hero_tree/editableField.component.js"></script>
+		<script src="components/hero_tree/heroDetail.component.js"></script>
+		<script src="components/hero_tree/heroList.component.js"></script>
+		<script src="components/zone/zone-example-note.component.js"></script>
+		<script src="components/zone/zone-example.component.js"></script>
+		<script src="components/zone/zone-warning.component.js"></script>
+		<script src="components/zone/zone.component.js"></script>
+		<script src="components/hero/hero.component.js"></script>
+		<!-- endinject -->
+	
+	</body>
+</html>

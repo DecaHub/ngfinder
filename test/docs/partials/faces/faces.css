@@ -1,0 +1,737 @@
+/*
+
+Copyright (c) 2017 by Rachel Bull (http://codepen.io/rachel_web/pen/doaPWN)
+
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
+.faces-container {
+  position: relative;
+  border-radius: 10px;
+  height: 200px;
+  width: 200px;
+  padding: 20px;
+  float: left;
+  background: pink; }
+  .faces-container span {
+    margin-top: 0; }
+
+/* ---- z-index ---- */
+/* -------------------- Rachel Face ----------------- */
+.rachelface {
+  /* -------------------------------------------
+
+		Default CSS Variables (Standard face) */
+  /* ------------------------------------------- */
+  /* -------------------------------------------
+
+		Default CSS Variables (Girl) */
+  /* ------------------------------------------- */ }
+  .rachelface header {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    width: 94px;
+    height: 110px;
+    margin-top: calc(-110px / 2);
+    margin-left: calc(-94px / 2);
+    background: #ffcd94;
+    overflow: hidden; }
+    .rachelface header .eyes {
+      position: absolute;
+      top: 37%;
+      left: 50%; }
+      .rachelface header .eyes:before, .rachelface header .eyes:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 0;
+        height: 0;
+        border: 6px solid #171717;
+        border-radius: 10px; }
+      .rachelface header .eyes:before {
+        left: 11px; }
+      .rachelface header .eyes:after {
+        right: 11px; }
+    .rachelface header .nose {
+      position: absolute;
+      top: 53%;
+      left: 50%;
+      height: 10px;
+      width: 5px;
+      margin-left: calc(-5px / 2);
+      border: 2px solid #171717;
+      border-color: transparent transparent #171717 #171717;
+      border-radius: 0 10px 10px;
+      -webkit-transform: rotate(9deg);
+      transform: rotate(9deg); }
+    .rachelface header .mouth {
+      position: absolute;
+      top: 42%;
+      left: 50%;
+      width: 45px;
+      height: 40px;
+      margin-left: calc((-45px + -2px) / 2);
+      border: 2px solid #171717;
+      border-radius: 20px;
+      border-color: transparent transparent #171717 transparent; }
+    .rachelface header .blush {
+      position: absolute;
+      top: 55%;
+      left: 50%;
+      height: 50px;
+      width: 94px;
+      margin-left: calc(-94px / 2); }
+      .rachelface header .blush:before, .rachelface header .blush:after {
+        box-shadow: 0 0 15px 8px rgba(222, 93, 131, 0.6);
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 0;
+        height: 0; }
+      .rachelface header .blush:before {
+        left: 15px; }
+      .rachelface header .blush:after {
+        right: 15px; }
+  .rachelface .ears {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    width: 94px;
+    height: 110px;
+    margin-top: calc(-110px / 2);
+    margin-left: calc(-94px / 2); }
+    .rachelface .ears:before, .rachelface .ears:after {
+      content: "";
+      position: absolute;
+      top: 44%;
+      background: #ffcd94;
+      height: 22px;
+      width: 8px;
+      z-index: 10; }
+    .rachelface .ears:before {
+      left: -8px;
+      border-radius: 16px 8px 8px 16px; }
+    .rachelface .ears:after {
+      right: -8px;
+      border-radius: 8px 16px 16px 8px; }
+  .rachelface .hair {
+    position: absolute;
+    background: #5C2523;
+    top: 18%;
+    left: 50%; }
+  .rachelface header {
+    border-radius: 50px 50px 50px 50px; }
+  .rachelface .hair {
+    height: 180px;
+    width: calc(114px);
+    margin-left: calc((-114px) / 2);
+    border-radius: 60px 60px 10px 10px; }
+    .rachelface .hair:before, .rachelface .hair:after {
+      content: "";
+      position: absolute;
+      top: 8px;
+      z-index: 15;
+      height: calc(180px - 8px);
+      width: 40px; }
+    .rachelface .hair:before {
+      border-left: 20px solid #250f0e;
+      border-radius: 96px 5px 5px 50px;
+      left: 0; }
+    .rachelface .hair:after {
+      border-right: 20px solid #250f0e;
+      border-radius: 5px 96px 50px 5px;
+      right: 0; }
+    .rachelface .hair .right-side-fringe {
+      position: absolute;
+      top: -1%;
+      right: 10px;
+      height: 94px;
+      width: 40px;
+      border-right: #250f0e solid 30px;
+      border-radius: 5px 100px 100px 50px;
+      -webkit-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      z-index: 20; }
+    .rachelface .hair .full-fringe {
+      position: absolute;
+      top: 4%;
+      left: 50%;
+      margin-left: calc(-94px / 2);
+      width: 94px;
+      height: 94px;
+      border-top: #250f0e solid 40px;
+      border-radius: 90px 90px 5px 5px;
+      z-index: 20; }
+    .rachelface .hair .both-side-fringe:before, .rachelface .hair .both-side-fringe:after {
+      content: "";
+      position: absolute;
+      top: -5%;
+      height: 59px;
+      width: 22px;
+      z-index: 20; }
+    .rachelface .hair .both-side-fringe:before {
+      border-left: #250f0e solid 16px;
+      border-radius: 72px 5px 50px 52px;
+      left: 9px;
+      -webkit-transform: rotate(-128deg);
+      transform: rotate(-128deg); }
+    .rachelface .hair .both-side-fringe:after {
+      border-right: #250f0e solid 16px;
+      border-radius: 5px 72px 52px 50px;
+      right: 9px;
+      -webkit-transform: rotate(128deg);
+      transform: rotate(128deg); }
+  .rachelface .bow {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    width: 94px;
+    height: 110px;
+    margin-top: calc(-110px / 2);
+    margin-left: calc(-94px / 2); }
+    .rachelface .bow:before, .rachelface .bow:after {
+      content: "";
+      position: absolute;
+      top: -20px;
+      left: 25%;
+      border-left: 25px solid #6A5ACD;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      height: 16px;
+      width: 0;
+      border-radius: 8px 0 0 8px;
+      z-index: 0; }
+    .rachelface .bow:after {
+      -webkit-transform: rotate(180deg);
+      transform: rotate(180deg);
+      margin-left: 25px; }
+  .rachelface .hair:after {
+    display: none; }
+
+/* -------------------- Jon Face ----------------- */
+.jonface {
+  /* -------------------------------------------
+
+		Default CSS Variables (Standard face) */
+  /* ------------------------------------------- */
+  /* -------------------------------------------
+
+		Default CSS Variables (Boy) */
+  /* ------------------------------------------- */
+  /*	@mustacheSize: (@size*.13);
+		&:before,
+		&:after{
+			content: '';
+			position: absolute;
+			left: $face__position;
+			top: (@size*.16);
+			width: @mustacheSize;
+			height: @mustacheSize;
+		}
+		&:before{
+			border-radius: (@mustacheSize*2) @mustacheSize;
+			background: #ffcd94;
+			box-shadow: 0 5px 0 0 black;
+			.rotate(25deg);
+		}
+		&:after{
+			margin-left: (-@mustacheSize - @size*.02);
+			border-radius: @mustacheSize @mustacheSize*2;
+			background: #ffcd94;
+			box-shadow: 0 5px 0 0 black;
+			.rotate(-25deg);
+		}*/ }
+  .jonface header {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    width: 94px;
+    height: 110px;
+    margin-top: calc(-110px / 2);
+    margin-left: calc(-94px / 2);
+    background: #ffcd94;
+    overflow: hidden; }
+    .jonface header .eyes {
+      position: absolute;
+      top: 37%;
+      left: 50%; }
+      .jonface header .eyes:before, .jonface header .eyes:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 0;
+        height: 0;
+        border: 6px solid #171717;
+        border-radius: 10px; }
+      .jonface header .eyes:before {
+        left: 11px; }
+      .jonface header .eyes:after {
+        right: 11px; }
+    .jonface header .nose {
+      position: absolute;
+      top: 53%;
+      left: 50%;
+      height: 10px;
+      width: 5px;
+      margin-left: calc(-5px / 2);
+      border: 2px solid #171717;
+      border-color: transparent transparent #171717 #171717;
+      border-radius: 0 10px 10px;
+      -webkit-transform: rotate(9deg);
+      transform: rotate(9deg); }
+    .jonface header .mouth {
+      position: absolute;
+      top: 42%;
+      left: 50%;
+      width: 45px;
+      height: 40px;
+      margin-left: calc((-45px + -2px) / 2);
+      border: 2px solid #171717;
+      border-radius: 20px;
+      border-color: transparent transparent #171717 transparent; }
+    .jonface header .blush {
+      position: absolute;
+      top: 55%;
+      left: 50%;
+      height: 50px;
+      width: 94px;
+      margin-left: calc(-94px / 2); }
+      .jonface header .blush:before, .jonface header .blush:after {
+        box-shadow: 0 0 15px 8px rgba(230, 158, 132, 0.6);
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 0;
+        height: 0; }
+      .jonface header .blush:before {
+        left: 15px; }
+      .jonface header .blush:after {
+        right: 15px; }
+  .jonface .ears {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    width: 94px;
+    height: 110px;
+    margin-top: calc(-110px / 2);
+    margin-left: calc(-94px / 2); }
+    .jonface .ears:before, .jonface .ears:after {
+      content: "";
+      position: absolute;
+      top: 44%;
+      background: #ffcd94;
+      height: 22px;
+      width: 11px;
+      z-index: 10; }
+    .jonface .ears:before {
+      left: -11px;
+      border-radius: 22px 11px 11px 22px; }
+    .jonface .ears:after {
+      right: -11px;
+      border-radius: 11px 22px 22px 11px; }
+  .jonface .hair {
+    position: absolute;
+    background: #5C2523;
+    top: 18%;
+    left: 50%; }
+  .jonface header {
+    border-radius: 40px 40px 50px 50px; }
+  .jonface .hair {
+    top: 33px;
+    height: 93px;
+    width: calc(94px + 10px);
+    margin-left: calc((-94px + -10px) / 2);
+    border-radius: 48px 48px 40px 40px; }
+  .jonface .beard + .mouth {
+    top: 45%; }
+  .jonface .beard {
+    position: absolute;
+    top: -27%;
+    left: 50%;
+    height: 115px;
+    width: 94px;
+    margin-left: calc(-94px / 2);
+    box-shadow: 0px 32px 0px 0 rgba(92, 37, 35, 0.2);
+    border-radius: 40px; }
+
+/* -------------------- Hayley Face ----------------- */
+.hayleyface {
+  /* -------------------------------------------
+
+		Default CSS Variables (Standard face) */
+  /* ------------------------------------------- */
+  /* -------------------------------------------
+
+		Default CSS Variables (Girl) */
+  /* ------------------------------------------- */ }
+  .hayleyface header {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    width: 94px;
+    height: 110px;
+    margin-top: calc(-110px / 2);
+    margin-left: calc(-94px / 2);
+    background: #ffcd94;
+    overflow: hidden; }
+    .hayleyface header .eyes {
+      position: absolute;
+      top: 37%;
+      left: 50%; }
+      .hayleyface header .eyes:before, .hayleyface header .eyes:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 0;
+        height: 0;
+        border: 6px solid #171717;
+        border-radius: 10px; }
+      .hayleyface header .eyes:before {
+        left: 11px; }
+      .hayleyface header .eyes:after {
+        right: 11px; }
+    .hayleyface header .nose {
+      position: absolute;
+      top: 53%;
+      left: 50%;
+      height: 10px;
+      width: 5px;
+      margin-left: calc(-5px / 2);
+      border: 2px solid #171717;
+      border-color: transparent transparent #171717 #171717;
+      border-radius: 0 10px 10px;
+      -webkit-transform: rotate(9deg);
+      transform: rotate(9deg); }
+    .hayleyface header .mouth {
+      position: absolute;
+      top: 42%;
+      left: 50%;
+      width: 45px;
+      height: 40px;
+      margin-left: calc((-45px + -2px) / 2);
+      border: 2px solid #171717;
+      border-radius: 20px;
+      border-color: transparent transparent #171717 transparent; }
+    .hayleyface header .blush {
+      position: absolute;
+      top: 55%;
+      left: 50%;
+      height: 50px;
+      width: 94px;
+      margin-left: calc(-94px / 2); }
+      .hayleyface header .blush:before, .hayleyface header .blush:after {
+        box-shadow: 0 0 15px 8px rgba(222, 93, 131, 0.6);
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 0;
+        height: 0; }
+      .hayleyface header .blush:before {
+        left: 15px; }
+      .hayleyface header .blush:after {
+        right: 15px; }
+  .hayleyface .ears {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    width: 94px;
+    height: 110px;
+    margin-top: calc(-110px / 2);
+    margin-left: calc(-94px / 2); }
+    .hayleyface .ears:before, .hayleyface .ears:after {
+      content: "";
+      position: absolute;
+      top: 44%;
+      background: #ffcd94;
+      height: 22px;
+      width: 8px;
+      z-index: 10; }
+    .hayleyface .ears:before {
+      left: -8px;
+      border-radius: 16px 8px 8px 16px; }
+    .hayleyface .ears:after {
+      right: -8px;
+      border-radius: 8px 16px 16px 8px; }
+  .hayleyface .hair {
+    position: absolute;
+    background: #860600;
+    top: 18%;
+    left: 50%; }
+  .hayleyface header {
+    border-radius: 50px 50px 50px 50px; }
+  .hayleyface .hair {
+    height: 180px;
+    width: calc(114px);
+    margin-left: calc((-114px) / 2);
+    border-radius: 60px 60px 10px 10px; }
+    .hayleyface .hair:before, .hayleyface .hair:after {
+      content: "";
+      position: absolute;
+      top: 8px;
+      z-index: 15;
+      height: calc(180px - 8px);
+      width: 42px; }
+    .hayleyface .hair:before {
+      border-left: 22px solid #3a0300;
+      border-radius: 96px 5px 5px 50px;
+      left: 0; }
+    .hayleyface .hair:after {
+      border-right: 22px solid #3a0300;
+      border-radius: 5px 96px 50px 5px;
+      right: 0; }
+    .hayleyface .hair .right-side-fringe {
+      position: absolute;
+      top: -1%;
+      right: 10px;
+      height: 94px;
+      width: 40px;
+      border-right: #3a0300 solid 30px;
+      border-radius: 5px 100px 100px 50px;
+      -webkit-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      z-index: 20; }
+    .hayleyface .hair .full-fringe {
+      position: absolute;
+      top: 4%;
+      left: 50%;
+      margin-left: calc(-94px / 2);
+      width: 94px;
+      height: 94px;
+      border-top: #3a0300 solid 40px;
+      border-radius: 90px 90px 5px 5px;
+      z-index: 20; }
+    .hayleyface .hair .both-side-fringe:before, .hayleyface .hair .both-side-fringe:after {
+      content: "";
+      position: absolute;
+      top: -5%;
+      height: 59px;
+      width: 22px;
+      z-index: 20; }
+    .hayleyface .hair .both-side-fringe:before {
+      border-left: #3a0300 solid 16px;
+      border-radius: 72px 5px 50px 52px;
+      left: 9px;
+      -webkit-transform: rotate(-128deg);
+      transform: rotate(-128deg); }
+    .hayleyface .hair .both-side-fringe:after {
+      border-right: #3a0300 solid 16px;
+      border-radius: 5px 72px 52px 50px;
+      right: 9px;
+      -webkit-transform: rotate(128deg);
+      transform: rotate(128deg); }
+  .hayleyface .bow {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    width: 94px;
+    height: 110px;
+    margin-top: calc(-110px / 2);
+    margin-left: calc(-94px / 2); }
+    .hayleyface .bow:before, .hayleyface .bow:after {
+      content: "";
+      position: absolute;
+      top: -20px;
+      left: 25%;
+      border-left: 25px solid #6A5ACD;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      height: 16px;
+      width: 0;
+      border-radius: 8px 0 0 8px;
+      z-index: 0; }
+    .hayleyface .bow:after {
+      -webkit-transform: rotate(180deg);
+      transform: rotate(180deg);
+      margin-left: 25px; }
+
+/* -------------------- Enita Face ----------------- */
+.enitaface {
+  /* -------------------------------------------
+
+		Default CSS Variables (Standard face) */
+  /* ------------------------------------------- */
+  /* -------------------------------------------
+
+		Default CSS Variables (Girl) */
+  /* ------------------------------------------- */ }
+  .enitaface header {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    width: 94px;
+    height: 110px;
+    margin-top: calc(-110px / 2);
+    margin-left: calc(-94px / 2);
+    background: #E6A676;
+    overflow: hidden; }
+    .enitaface header .eyes {
+      position: absolute;
+      top: 37%;
+      left: 50%; }
+      .enitaface header .eyes:before, .enitaface header .eyes:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 0;
+        height: 0;
+        border: 6px solid #171717;
+        border-radius: 10px; }
+      .enitaface header .eyes:before {
+        left: 11px; }
+      .enitaface header .eyes:after {
+        right: 11px; }
+    .enitaface header .nose {
+      position: absolute;
+      top: 53%;
+      left: 50%;
+      height: 10px;
+      width: 5px;
+      margin-left: calc(-5px / 2);
+      border: 2px solid #171717;
+      border-color: transparent transparent #171717 #171717;
+      border-radius: 0 10px 10px;
+      -webkit-transform: rotate(9deg);
+      transform: rotate(9deg); }
+    .enitaface header .mouth {
+      position: absolute;
+      top: 42%;
+      left: 50%;
+      width: 45px;
+      height: 40px;
+      margin-left: calc((-45px + -2px) / 2);
+      border: 2px solid #171717;
+      border-radius: 20px;
+      border-color: transparent transparent #171717 transparent; }
+    .enitaface header .blush {
+      position: absolute;
+      top: 55%;
+      left: 50%;
+      height: 50px;
+      width: 94px;
+      margin-left: calc(-94px / 2); }
+      .enitaface header .blush:before, .enitaface header .blush:after {
+        box-shadow: 0 0 15px 8px rgba(189, 105, 130, 0.6);
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 0;
+        height: 0; }
+      .enitaface header .blush:before {
+        left: 15px; }
+      .enitaface header .blush:after {
+        right: 15px; }
+  .enitaface .ears {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    width: 94px;
+    height: 110px;
+    margin-top: calc(-110px / 2);
+    margin-left: calc(-94px / 2); }
+    .enitaface .ears:before, .enitaface .ears:after {
+      content: "";
+      position: absolute;
+      top: 44%;
+      background: #E6A676;
+      height: 22px;
+      width: 8px;
+      z-index: 10; }
+    .enitaface .ears:before {
+      left: -8px;
+      border-radius: 16px 8px 8px 16px; }
+    .enitaface .ears:after {
+      right: -8px;
+      border-radius: 8px 16px 16px 8px; }
+  .enitaface .hair {
+    position: absolute;
+    background: #331917;
+    top: 18%;
+    left: 50%; }
+  .enitaface header {
+    border-radius: 50px 50px 50px 50px; }
+  .enitaface .hair {
+    height: 140px;
+    width: calc(124px);
+    margin-left: calc((-124px) / 2);
+    border-radius: 60px 60px 10px 10px; }
+    .enitaface .hair:before, .enitaface .hair:after {
+      content: "";
+      position: absolute;
+      top: 8px;
+      z-index: 15;
+      height: calc(140px - 8px);
+      width: 52px; }
+    .enitaface .hair:before {
+      border-left: 22px solid black;
+      border-radius: 96px 5px 5px 50px;
+      left: 0; }
+    .enitaface .hair:after {
+      border-right: 22px solid black;
+      border-radius: 5px 96px 50px 5px;
+      right: 0; }
+    .enitaface .hair .right-side-fringe {
+      position: absolute;
+      top: -1%;
+      right: 10px;
+      height: 94px;
+      width: 40px;
+      border-right: black solid 30px;
+      border-radius: 5px 100px 100px 50px;
+      -webkit-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      z-index: 20; }
+    .enitaface .hair .full-fringe {
+      position: absolute;
+      top: 4%;
+      left: 50%;
+      margin-left: calc(-94px / 2);
+      width: 94px;
+      height: 94px;
+      border-top: black solid 40px;
+      border-radius: 90px 90px 5px 5px;
+      z-index: 20; }
+    .enitaface .hair .both-side-fringe:before, .enitaface .hair .both-side-fringe:after {
+      content: "";
+      position: absolute;
+      top: -5%;
+      height: 59px;
+      width: 22px;
+      z-index: 20; }
+    .enitaface .hair .both-side-fringe:before {
+      border-left: black solid 16px;
+      border-radius: 72px 5px 50px 52px;
+      left: 9px;
+      -webkit-transform: rotate(-128deg);
+      transform: rotate(-128deg); }
+    .enitaface .hair .both-side-fringe:after {
+      border-right: black solid 16px;
+      border-radius: 5px 72px 52px 50px;
+      right: 9px;
+      -webkit-transform: rotate(128deg);
+      transform: rotate(128deg); }
+  .enitaface .bow {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    width: 94px;
+    height: 110px;
+    margin-top: calc(-110px / 2);
+    margin-left: calc(-94px / 2); }
+    .enitaface .bow:before, .enitaface .bow:after {
+      content: "";
+      position: absolute;
+      top: -20px;
+      left: 25%;
+      border-left: 25px solid #6A5ACD;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      height: 16px;
+      width: 0;
+      border-radius: 8px 0 0 8px;
+      z-index: 0; }
+    .enitaface .bow:after {
+      -webkit-transform: rotate(180deg);
+      transform: rotate(180deg);
+      margin-left: 25px; }
