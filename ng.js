@@ -134,9 +134,19 @@ class NG {
 			
 			if (set.size > 0) {
 				
+				let tempFiles = [];
+				
 				for (const file of set) {
 					
-					ngFiles.push(file);
+					tempFiles.push(file);
+					
+				}
+				
+				tempFiles.sort();
+				
+				for (let i = 0; i < tempFiles.length; ++i) {
+					
+					ngFiles.push(tempFiles[i]);
 					
 				}
 				
